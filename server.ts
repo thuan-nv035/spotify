@@ -20,6 +20,7 @@ const spotifyApi = new SpotifyWebApi({
   clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
   redirectUri: `${process.env.APP_URL}/auth/callback`,
 });
+
 // Auth URL
 app.get("/api/auth/url", (req, res) => {
   const scopes = [
@@ -32,7 +33,7 @@ app.get("/api/auth/url", (req, res) => {
     "user-read-currently-playing",
     "playlist-read-private",
     "playlist-read-collaborative",
-    "streaming"
+    "streaming",
   ];
   const state = "spotify_auth_state";
   const authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
@@ -42,7 +43,6 @@ app.get("/api/auth/url", (req, res) => {
 // Callback
 app.get("/auth/callback", async (req, res) => {
   const { code } = req.query;
-  // console.log('code')
   try {
     const data = await spotifyApi.authorizationCodeGrant(code as string);
     const { access_token, refresh_token, expires_in } = data.body;
@@ -69,7 +69,7 @@ app.get("/auth/callback", async (req, res) => {
     `);
   } catch (error) {
     console.error("Error during Spotify auth:", error);
-    res.status(500).send("Authentication failed");
+    res.status(500).send("Authentication failed",);
   }
 });
 
@@ -79,13 +79,13 @@ app.post("/api/auth/refresh", async (req, res) => {
   const sApi = new SpotifyWebApi({
     clientId: process.env.SPOTIFY_CLIENT_ID,
     clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-    refreshToken: refresh_token
+    refreshToken: refresh_token,
   });
   try {
     const data = await sApi.refreshAccessToken();
     res.json({
       access_token: data.body.access_token,
-      expires_in: data.body.expires_in
+      expires_in: data.body.expires_in,
     });
   } catch (error) {
     res.status(500).json({ error: "Failed to refresh token" });

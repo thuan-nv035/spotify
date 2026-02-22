@@ -8,7 +8,6 @@ const handleLogin = async () => {
   try {
     const response = await fetch('/api/auth/url');
     const { url } = await response.json();
-    console.log(url)
     window.open(url, 'spotify_auth', 'width=600,height=800');
   } catch (error) {
     console.error('Login error:', error);
@@ -30,8 +29,5 @@ const handleLogin = async () => {
     >
       {{ loading ? 'Connecting...' : 'LOG IN WITH SPOTIFY' }}
     </button>
-    <p class="mt-6 text-gray-400 text-sm max-w-xs text-center">
-      Note: You need to configure SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET in your environment.
-    </p>
   </div>
 </template>
