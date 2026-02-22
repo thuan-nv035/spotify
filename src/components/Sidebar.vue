@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { Home, Search, Library, PlusSquare, Heart, Download } from 'lucide-react';
+import { Home, Search, Library, PlusSquare, Heart, Download } from 'lucide-vue-next';
 import { spotifyService } from '../services/spotify';
 
 const playlists = ref<any[]>([]);

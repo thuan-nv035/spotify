@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { 
   Play, Pause, SkipBack, SkipForward, Repeat, Shuffle, 
   Volume2, Maximize2, ListMusic, Laptop2, Heart
-} from 'lucide-react';
+} from 'lucide-vue-next';
 import { spotifyService } from '../services/spotify';
 
 const playback = ref<any>(null);

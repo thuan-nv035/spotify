@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
-import { ChevronLeft, ChevronRight, Play, Heart, MoreHorizontal } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play, Heart, MoreHorizontal } from 'lucide-vue-next';
 import { spotifyService } from '../services/spotify';
 import { useAuthStore } from '../stores/auth';
 
