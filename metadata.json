@@ -1,0 +1,5 @@
+{
+  "name": "Spotify Clone",
+  "description": "A full-featured Spotify clone built with Vue 3, Tailwind CSS, and the Spotify Web API, featuring OAuth integration and real-time playback controls.",
+  "requestFramePermissions": []
+}
